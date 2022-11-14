@@ -1,0 +1,25 @@
+
+;; ----- smex-history -----
+(
+ mood-line-mode
+ magit
+ package-install
+ package-delete
+ customize
+ customize-themes
+ dired
+)
+
+;; ----- smex-data -----
+(
+ (package-install . 2)
+ (mood-line-mode . 3)
+ (customize-themes . 2)
+ (org-html-export-to-html . 2)
+ (ansi-term . 1)
+ (dired . 2)
+ (log-diary . 5)
+ (customize . 1)
+ (magit . 4)
+ (package-delete . 2)
+)

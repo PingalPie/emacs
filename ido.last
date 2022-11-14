@@ -1,0 +1,39 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/yash/code/website/content/" . "diary/")
+ ("/home/yash/code/website/" . "content/")
+ ("/home/yash/code/" . "website/")
+ ("/home/yash/" . "code/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/yash/code/website/content/diary/"
+ "/home/yash/"
+ "/home/yash/code/website/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "2022-11-11.md"
+ "avatar.png"
+ "config.toml"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/yash/code/website/content/diary/" (25454 10151 627605 346000) "2022-11-09.md" "2022-11-1.md" "./" "_index.md" "2022-11-07.md" "../" "2022-10-31.md" "2022-11-08.md" "2022-11-3.md" "2022-11-4.md" "2022-11-10.md" "2022-11-5.md" "2022-11-06.md")
+
+ ("/home/yash/code/website/content/" (25451 38306 703088 243000) "blog/" "./" "diary/" "about.md" "../" "library/" "contact.md")
+
+ ("/home/yash/" (25454 34347 712182 767000) ".steampid" ".pulse-cookie" "docs/" ".pki/" ".Xauthority" ".gnupg/" ".yt-local/" ".irssi/" ".xprofile" ".ssh/" "./" "code/" "music/" ".zprofile" ".gtkrc-2.0" ".cache/" ".steam/" ".steampath" "dl/" ".local/" ".python_history" ".zoom/" ".viminfo" "../" ".lyrics/" "pix/" ".mozilla/" ".node_repl_history" ".emacs.d/" ".gitconfig" ".ihsec/" "roadmap" "vids/" ".config/" ".npm/")
+
+ ("/home/yash/code/website/" (25451 23329 623710 979000) "static/" "content/" "./" ".git/" "../" "config.toml" "templates/")
+
+ ("/home/yash/code/" (25451 5396 171245 858000) "java/" "code.tar.gz" "./" "python/" "../" ".vscode/" "bw/" "cs50/" "yt/" "website/" "C/" "html-css-js/")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

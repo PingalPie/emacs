@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-11 Fri 23:01 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>PingalPie's emacs config</title>
+<meta name="author" content="Yash Bajaj" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://ugeek.github.io/style-css-org-mode/bjm_code.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">PingalPie's emacs config</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orga16991d">1. Introduction</a></li>
+<li><a href="#org7b42bd6">2. Installation</a></li>
+<li><a href="#orgad1f984">3. Package Management</a>
+<ul>
+<li><a href="#org823a86e">3.1. Melpa</a></li>
+<li><a href="#org836b100">3.2. Package Manager</a></li>
+</ul>
+</li>
+<li><a href="#org78bb851">4. Window Management</a>
+<ul>
+<li><a href="#orgdc2c9a8">4.1. Better Spliting</a></li>
+<li><a href="#org3f211e5">4.2. Focus mode</a></li>
+<li><a href="#orgef746de">4.3. Minor betterment</a></li>
+<li><a href="#orgd72e278">4.4. Switch Window</a></li>
+</ul>
+</li>
+<li><a href="#orgc3bcaa0">5. Better Appearance</a>
+<ul>
+<li><a href="#orgbed1b5e">5.1. Basic Interface</a></li>
+<li><a href="#org120505d">5.2. Theme</a></li>
+<li><a href="#org81d458e">5.3. Font</a></li>
+</ul>
+</li>
+<li><a href="#orgb52d7cf">6. Editing Features</a>
+<ul>
+<li><a href="#orgcbe3b98">6.1. Hungry Delete</a></li>
+</ul>
+</li>
+<li><a href="#org361c317">7. Programming</a>
+<ul>
+<li><a href="#orga68ba26">7.1. Display line number</a></li>
+</ul>
+</li>
+<li><a href="#orgdc4f4e9">8. Better Emacs</a>
+<ul>
+<li><a href="#org84e300a">8.1. Start Up Screen (dashboard)</a></li>
+<li><a href="#orgb6a3471">8.2. Modeline</a></li>
+<li><a href="#org20354c5">8.3. Command Menu (smex)</a>
+<ul>
+<li><a href="#orge95e466">8.3.1. Ido Mode</a></li>
+<li><a href="#org1a4077e">8.3.2. Smex</a></li>
+</ul>
+</li>
+<li><a href="#org20a4bae">8.4. Others</a></li>
+</ul>
+</li>
+<li><a href="#org3925239">9. Emacs as IDE?</a>
+<ul>
+<li><a href="#org470f11e">9.1. LSP Mode</a></li>
+<li><a href="#org2c2bb28">9.2. Debugger Mode</a></li>
+<li><a href="#org557185e">9.3. Languages</a>
+<ul>
+<li><a href="#org8f3951a">9.3.1. Web (html/css/js)</a></li>
+<li><a href="#orgdad66e4">9.3.2. Python</a></li>
+</ul>
+</li>
+<li><a href="#orge99ab2f">9.4. Git Integration</a></li>
+</ul>
+</li>
+<li><a href="#org4db0779">10. Convinent functions</a>
+<ul>
+<li><a href="#org777a315">10.1. move line up/down</a></li>
+<li><a href="#org0046b9f">10.2. copy whole line</a></li>
+<li><a href="#org1a88a3d">10.3. kill whole word</a></li>
+<li><a href="#org29fd881">10.4. config edit/reload</a>
+<ul>
+<li><a href="#orgbba91d9">10.4.1. edit</a></li>
+<li><a href="#orga1471dd">10.4.2. reload</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3bca7b1">11. My Website</a></li>
+<li><a href="#org7cea20c">12. Packages</a>
+<ul>
+<li><a href="#org22dae95">12.1. Beacon</a></li>
+<li><a href="#org097ceae">12.2. Which Key</a></li>
+</ul>
+</li>
+<li><a href="#org245695e">13. Org mode</a>
+<ul>
+<li>
+<ul>
+<li><a href="#orgbbc1681">13.0.1. basic config</a></li>
+<li><a href="#org0e89569">13.0.2. Bullets</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org23d3951">14. Misc</a>
+<ul>
+<li><a href="#org9fc722f">14.1. Locales</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga16991d" class="outline-2">
+<h2 id="orga16991d"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is an elisp program, which gets run everytime I start my emacs editor,
+Some people also call it <b>emacs config</b>. Why I'm writing it under org mode?
+<i>Literate Programming Bitch!</i>
+</p>
+
+<ul class="org-ul">
+<li><b>Author</b> - Yash Bajaj</li>
+<li><b>Created</b>: 11-11-2022</li>
+<li><b>License</b> - <a href="./LICENSE">GNU General Public License (GPL)</a></li>
+</ul>
+
+
+<div id="orga8bcf11" class="figure">
+<p><img src="https://imgs.xkcd.com/comics/real_programmers.png" alt="real_programmers.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>XKCD Emacs Comic</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b42bd6" class="outline-2">
+<h2 id="org7b42bd6"><span class="section-number-2">2.</span> Installation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+You can anytime use my emacs config, the installation is pretty simple,
+</p>
+<p class="verse">
+<b>Note</b> - I won't suggest you to use it, without code understanding.<br />
+</p>
+<ul class="org-ul">
+<li>First get rid of your <code>~/.emacs.d</code> and <code>~/.emacs</code>.</li>
+<li>Run <code>git clone git@bugswriter.com:~/emacs.d.git ~/.emacs.d</code></li>
+<li>Open Emacs with <i>finger crossed!</i></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgad1f984" class="outline-2">
+<h2 id="orgad1f984"><span class="section-number-2">3.</span> Package Management</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Emacs is like an OS, it is highly extensible, you can install any new
+functionality by just installing a package, just like you do in an OS.
+You can also configure these programs by changing some elisp variables.
+</p>
+<p class="verse">
+An average emacs user can easily ends up installing 100+ packages.<br />
+</p>
+</div>
+<div id="outline-container-org823a86e" class="outline-3">
+<h3 id="org823a86e"><span class="section-number-3">3.1.</span> Melpa</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://www.melpa.org">https://www.melpa.org</a></i></li>
+</ul>
+<p>
+By default emacs contain less number of package choices. This is why
+we need Melpa. It's a package repository for emacs.
+</p>
+<p class="verse">
+MELPA is an ELPA-compatible package repository that contains an enormous<br />
+amount of useful Emacs packages.<br />
+</p>
+<p>
+Think of it like VSCode Plugin Marketplace (eww).
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(require 'package)
+(setq package-enable-at-startup nil)
+
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org836b100" class="outline-3">
+<h3 id="org836b100"><span class="section-number-3">3.2.</span> Package Manager</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://jwiegley.github.io/use-package">https://jwiegley.github.io/use-package</a></i></li>
+</ul>
+<p>
+The use-package macro allows you to isolate package configuration in your
+.emacs file in a way that is both performance-oriented and, well, tidy.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org78bb851" class="outline-2">
+<h2 id="org78bb851"><span class="section-number-2">4.</span> Window Management</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgdc2c9a8" class="outline-3">
+<h3 id="orgdc2c9a8"><span class="section-number-3">4.1.</span> Better Spliting</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+By default after spliting window, the cursor doesn't move to new window
+automatically. <i>why emacs why?</i> Isn't this obvious - user wants to move
+to new window? Whatever&#x2026;
+These custom functions are gonna do it for us.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(defun split-and-follow-horizontally ()
+  (interactive)
+  (split-window-below)
+  (balance-windows)
+  (other-window 1))
+
+(defun split-and-follow-vertically ()
+  (interactive)
+  (split-window-right)
+  (balance-windows)
+  (other-window 1))
+</pre>
+</div>
+<p>
+Lets not forget to override our default keybindings of splitting window
+with our new custom functions.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(global-set-key (kbd "C-x 2") 'split-and-follow-horizontally)
+(global-set-key (kbd "C-x 3") 'split-and-follow-vertically)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org3f211e5" class="outline-3">
+<h3 id="org3f211e5"><span class="section-number-3">4.2.</span> Focus mode</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+This custom function <code>window-focus-mode</code> will allow us to quickly switch
+a window to fullscreen and getting back to normal size.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(defun window-focus-mode ()
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (set-register '_ (list (current-window-configuration)))
+      (delete-other-windows))))
+(global-set-key (kbd "C-c return") 'window-focus-mode)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgef746de" class="outline-3">
+<h3 id="orgef746de"><span class="section-number-3">4.3.</span> Minor betterment</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+Everytime I press <code>C-x k</code>, emacs kill the buffer but not window.
+Thankfully for this emacs already have a function exist.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(global-set-key (kbd "C-x k") 'kill-buffer-and-window)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd72e278" class="outline-3">
+<h3 id="orgd72e278"><span class="section-number-3">4.4.</span> Switch Window</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://github.com/dimitri/switch-window">https://github.com/dimitri/switch-window</a></i></li>
+</ul>
+<p>
+<code>switch-window</code> is an Emacs window switch tool, which offer a visual way to
+choose a window to switch to, delete, split or other operations.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package switch-window
+  :ensure t
+  :config
+  (setq switch-window-input-style 'minibuffer)
+  (setq switch-window-increase 4)
+  (setq switch-window-threshold 2)
+  (setq switch-window-shortcut-style 'qwerty)
+  (setq switch-window-qwerty-shortcuts
+	'("a" "s" "d" "f" "h" "j" "k" "l"))
+  :bind
+  ([remap other-window] . switch-window))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3bcaa0" class="outline-2">
+<h2 id="orgc3bcaa0"><span class="section-number-2">5.</span> Better Appearance</h2>
+<div class="outline-text-2" id="text-5">
+
+<div id="orga042d1f" class="figure">
+<p><img src="./ss.jpg" alt="ss.jpg" />
+</p>
+<p><span class="figure-number">Figure 2: </span>My Emacs</p>
+</div>
+</div>
+<div id="outline-container-orgbed1b5e" class="outline-3">
+<h3 id="orgbed1b5e"><span class="section-number-3">5.1.</span> Basic Interface</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+These are setting that do not depend on packages and are built-in enhancements to the UI.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(fringe-mode -1)
+(menu-bar-mode -1)
+</pre>
+</div>
+<div class="org-src-container">
+<pre class="src src-elisp">(setq use-dialog-box nil)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org120505d" class="outline-3">
+<h3 id="org120505d"><span class="section-number-3">5.2.</span> Theme</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://gitlab.com/jjzmajic/ewal">https://gitlab.com/jjzmajic/ewal</a></i></li>
+</ul>
+<p>
+A theme isn’t just a colorscheme. ewal lives by that. It uses pywal as a
+backend to spruce up your Emacs setup by default, but also sports over
+200 built in palettes to do so if you don’t use the program (or shudders,
+you use a DOS system).
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package ewal
+  :init (setq ewal-use-built-in-always-p nil
+	      ewal-use-built-in-on-failure-p t
+	      ewal-built-in-palette "sexy-material")
+  :if (not window-system)
+  :config
+  (setq-default mode-line-format nil))
+
+(use-package ewal-spacemacs-themes
+  :if window-system
+  :init (progn
+	  (show-paren-mode +1)
+	  (global-hl-line-mode))
+  :config (progn
+	    (load-theme 'ewal-spacemacs-classic t)
+	    (enable-theme 'ewal-spacemacs-classic)))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org81d458e" class="outline-3">
+<h3 id="org81d458e"><span class="section-number-3">5.3.</span> Font</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+I love <code>JetBrains Mono</code>. My best for programming. Using it since 2018.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(add-to-list 'default-frame-alist
+	     '(font . "JetBrains Mono-14"))  
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb52d7cf" class="outline-2">
+<h2 id="orgb52d7cf"><span class="section-number-2">6.</span> Editing Features</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Emacs is filled with lots of minor packages, which makes editing more fun and
+easy, We all love emacs because of it, in this section, we are going to add those
+packages. which saves our minor editing efforts.
+</p>
+</div>
+<div id="outline-container-orgcbe3b98" class="outline-3">
+<h3 id="orgcbe3b98"><span class="section-number-3">6.1.</span> Hungry Delete</h3>
+<div class="outline-text-3" id="text-6-1">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://github.com/nflath/hungry-delete">https://github.com/nflath/hungry-delete</a></i></li>
+</ul>
+<p>
+This package implements hungry deletion, meaning that deleting a whitespace
+character will delete all whitespace until the next non-whitespace character.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package hungry-delete
+  :ensure t
+  :config (global-hungry-delete-mode))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org361c317" class="outline-2">
+<h2 id="org361c317"><span class="section-number-2">7.</span> Programming</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orga68ba26" class="outline-3">
+<h3 id="orga68ba26"><span class="section-number-3">7.1.</span> Display line number</h3>
+<div class="outline-text-3" id="text-7-1">
+<pre class="example">
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdc4f4e9" class="outline-2">
+<h2 id="orgdc4f4e9"><span class="section-number-2">8.</span> Better Emacs</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org84e300a" class="outline-3">
+<h3 id="org84e300a"><span class="section-number-3">8.1.</span> Start Up Screen (dashboard)</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li><i>Reference - <a href="https://github.com/emacs-dashboard/emacs-dashboard">https://github.com/emacs-dashboard/emacs-dashboard</a></i></li>
+</ul>
+<p>
+An extensible emacs startup screen showing you what’s most important.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner "~/.emacs.d/avatar.png")
+  (setq dashboard-banner-logo-title "I am just a coder for fun"))
+(setq inhibit-startup-screen t)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb6a3471" class="outline-3">
+<h3 id="orgb6a3471"><span class="section-number-3">8.2.</span> Modeline</h3>
+<div class="outline-text-3" id="text-8-2">
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package mood-line
+  :ensure t
+  :if window-system
+  :init
+  (mood-line-mode))
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20354c5" class="outline-3">
+<h3 id="org20354c5"><span class="section-number-3">8.3.</span> Command Menu (smex)</h3>
+<div class="outline-text-3" id="text-8-3">
+<p>
+After pressing <code>M-x</code> emacs users see a prompt below, this prompt allow us to
+run any command within emacs. This is what I loved about emacs when I was
+learning it first, Almost anything, any functionality, any program, everything
+is a function and I can access that function by just pressing <code>M-x</code>. But
+memorizing all these commands are hard, also typing it. Emacs do provide
+tab completion but it sucks. So we are gonna pull up the emacs magic and
+install some packages to make it better.
+</p>
+</div>
+<div id="outline-container-orge95e466" class="outline-4">
+<h4 id="orge95e466"><span class="section-number-4">8.3.1.</span> Ido Mode</h4>
+<div class="outline-text-4" id="text-8-3-1">
+<p>
+The Ido package lets you switch between buffers and visit files and directories
+with a minimum of keystrokes. It is a superset of Iswitchb, the interactive
+buffer switching package by Stephen Eglen.
+</p>
+<ul class="org-ul">
+<li><i>Reference - <a href="https://www.emacswiki.org/emacs/InteractivelyDoThings">https://www.emacswiki.org/emacs/InteractivelyDoThings</a></i></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package ido-vertical-mode
+  :ensure t
+  :config
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only)      
+  :init
+  (ido-mode 1)
+  (ido-vertical-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a4077e" class="outline-4">
+<h4 id="org1a4077e"><span class="section-number-4">8.3.2.</span> Smex</h4>
+<div class="outline-text-4" id="text-8-3-2">
+<ul class="org-ul">
+<li><i>Reference - <a href="https://github.com/nonsequitur/smex">https://github.com/nonsequitur/smex</a></i></li>
+</ul>
+<p>
+Smex is a M-x enhancement for Emacs. Built on top of Ido, it provides a
+convenient interface to your recently and most frequently used commands.
+And to all the other commands, too.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind
+  ("M-x" . smex))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org20a4bae" class="outline-3">
+<h3 id="org20a4bae"><span class="section-number-3">8.4.</span> Others</h3>
+<div class="outline-text-3" id="text-8-4">
+<div class="org-src-container">
+<pre class="src src-elisp">(global-set-key (kbd "C-c l n") 'flymake-goto-next-error)
+(global-set-key (kbd "C-c l p") 'flymake-goto-prev-error)  
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(defalias 'yes-or-no-p 'y-or-n-p)
+(global-set-key [(C-return)] 'toggle-maximize-buffer)
+(use-package projectile
+  :ensure t
+  :config
+  (setq projectile-use-git-grep t)
+  :bind
+  ("C-x p f" . projectile-find-file)
+  :init
+  (projectile-mode 1))
+(use-package company
+  :ensure t
+  :hook prog-mode)
+(use-package treemacs-projectile
+  :ensure t
+  :after (treemacs projectile))
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3925239" class="outline-2">
+<h2 id="org3925239"><span class="section-number-2">9.</span> Emacs as IDE?</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Emacs is a writer's machine, we can use emacs for writing books, spreadsheets,
+thesis and almost anything. But I only use it for programming, blogs, and
+journaling.
+To be honest, I don't like coding in IDEs, I like simple editor with less
+features, but for bigger projects, especially which require frameworks, I find
+it very lame to write without IDE features like - auto-completion and type
+checker. For all my different kind of programming needs -
+</p>
+</div>
+<div id="outline-container-org470f11e" class="outline-3">
+<h3 id="org470f11e"><span class="section-number-3">9.1.</span> LSP Mode</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li><i>Reference - <a href="https://emacs-lsp.github.io">https://emacs-lsp.github.io</a></i></li>
+</ul>
+<p>
+<code>lsp-mode</code> aims to provide IDE-like experience by providing optional integration with the
+most popular Emacs packages like company , flycheck and projectile . Non-blocking
+asynchronous calls. 
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package lsp-mode
+  :ensure t
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (setq lsp-headerline-breadcrumb-enable nil))
+</pre>
+</div>
+<p>
+This package contains all the higher level UI modules of lsp-mode, like
+flycheck support and code lenses.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package lsp-ui
+  :ensure t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org2c2bb28" class="outline-3">
+<h3 id="org2c2bb28"><span class="section-number-3">9.2.</span> Debugger Mode</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://github.com/emacs-lsp/dap-mode">https://github.com/emacs-lsp/dap-mode</a></i></li>
+</ul>
+<p>
+I am not a `print` noob, I use debugger. Lets get `dap-mode` for that.
+Emacs client/library for Debug Adapter Protocol is a wire protocol for
+communication between client and Debug Server. It’s similar to the LSP but
+provides integration with debug server.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package dap-mode
+  :after lsp-mode
+  :ensure t)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org557185e" class="outline-3">
+<h3 id="org557185e"><span class="section-number-3">9.3.</span> Languages</h3>
+<div class="outline-text-3" id="text-9-3">
+<p>
+Now, we will configure language server protocol and other settings for each,
+languages I work on, one by one.
+</p>
+</div>
+<div id="outline-container-org8f3951a" class="outline-4">
+<h4 id="org8f3951a"><span class="section-number-4">9.3.1.</span> Web (html/css/js)</h4>
+<div class="outline-text-4" id="text-9-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgeea997a"></a>Web Mode<br />
+<div class="outline-text-5" id="text-9-3-1-1">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://web-mode.org">https://web-mode.org</a></i></li>
+</ul>
+<p>
+I love web-mode, I like writing website old school way (in html and css).
+<code>web-mode.el</code> is an autonomous emacs major-mode for editing web templates.
+HTML documents can embed parts (CSS / JavaScript) and blocks (client /
+server side). Web mode provide so many cool shortcuts to work with html fast.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package web-mode
+  :ensure t
+  :config
+  (setq
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-style-padding 2
+   web-mode-script-padding 2
+   web-mode-enable-auto-closing t
+   web-mode-enable-auto-opening t
+   web-mode-enable-auto-pairing t
+   web-mode-enable-auto-indentation t)
+  :mode
+  (".html$" "*.php$" "*.tsx"))
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org82bb914"></a>Emmet-mode<br />
+<div class="outline-text-5" id="text-9-3-1-2">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://https//github.com/smihica/emmet-mode">https://https//github.com/smihica/emmet-mode</a></i></li>
+</ul>
+<p>
+Emmet is a plugin for many popular text editors which greatly improves HTML &amp;
+CSS workflow -
+</p>
+
+<div id="orgc3cc627" class="figure">
+<p><img src="https://www.philnewton.net/assets/blog/2015/08/emmet.gif" alt="emmet.gif" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Emmet Mode Demo</p>
+</div>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package emmet-mode
+  :ensure t)
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+
+<div id="outline-container-orgdad66e4" class="outline-4">
+<h4 id="orgdad66e4"><span class="section-number-4">9.3.2.</span> Python</h4>
+<div class="outline-text-4" id="text-9-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="orgaf782b8"></a>Language Server Protocol<br />
+<div class="outline-text-6" id="text-9-3-2-0-1">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://github.com/emacs-lsp/lsp-pyright">https://github.com/emacs-lsp/lsp-pyright</a></i></li>
+</ul>
+<p>
+Pyright is a fast type checker meant for large Python source bases. It can run
+in a “watch” mode and performs fast incremental updates when files are modified.
+For python I decided to use pyright language server protocol.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package lsp-pyright
+  :ensure t
+  :hook (python-mode . (lambda ()
+			 (setq indent-tabs-mode t)
+			 (setq tab-width 4)
+			 (setq python-indent-offset 4)
+			 (company-mode 1)
+			 (require 'lsp-pyright)
+			 (pyvenv-autoload)
+			 (lsp))))
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orge99ab2f" class="outline-3">
+<h3 id="orge99ab2f"><span class="section-number-3">9.4.</span> Git Integration</h3>
+<div class="outline-text-3" id="text-9-4">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://magit.vc">https://magit.vc</a></i></li>
+</ul>
+<p>
+I can't use git without <i>Magit</i>.
+Magit is a complete text-based user interface to Git. It fills the glaring gap
+between the Git command-line interface and various GUIs, letting you perform
+trivial as well as elaborate version control tasks with just a couple of
+mnemonic key presses. Magit looks like a prettified version of what you get
+after running a few Git commands but in Magit every bit of visible information
+is also actionable to an extent that goes far beyond what any Git GUI provides
+and it takes care of automatically refreshing this output when it becomes
+outdated. In the background Magit just runs Git commands and if you wish you
+can see what exactly is being run, making it possible for you to learn the git
+command-line by using Magit.
+I ❤ Magit.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(use-package magit
+  :ensure t)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org4db0779" class="outline-2">
+<h2 id="org4db0779"><span class="section-number-2">10.</span> Convinent functions</h2>
+<div class="outline-text-2" id="text-10">
+</div>
+<div id="outline-container-org777a315" class="outline-3">
+<h3 id="org777a315"><span class="section-number-3">10.1.</span> move line up/down</h3>
+<div class="outline-text-3" id="text-10-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defun move-text-internal (arg)
+  (cond
+   ((and mark-active transient-mark-mode)
+    (if (&gt; (point) (mark))
+	(exchange-point-and-mark))
+    (let ((column (current-column))
+	  (text (delete-and-extract-region (point) (mark))))
+      (forward-line arg)
+      (move-to-column column t)
+      (set-mark (point))
+      (insert text)
+      (exchange-point-and-mark)
+      (setq deactivate-mark nil)))
+   (t
+    (let ((column (current-column)))
+      (beginning-of-line)
+      (when (or (&gt; arg 0) (not (bobp)))
+	(forward-line)
+	(when (or (&lt; arg 0) (not (eobp)))
+	  (transpose-lines arg)
+	  (when (and (eval-when-compile
+		       '(and (&gt;= emacs-major-version 24)
+			     (&gt;= emacs-minor-version 3)))
+		     (&lt; arg 0))
+	    (forward-line -1)))
+	(forward-line -1))
+      (move-to-column column t)))))
+
+(defun move-text-down (arg)
+  "Move region (transient-mark-mode active) or current line
+  arg lines down."
+  (interactive "*p")
+  (move-text-internal arg))
+
+(defun move-text-up (arg)
+  "Move region (transient-mark-mode active) or current line
+  arg lines up."
+  (interactive "*p")
+  (move-text-internal (- arg)))
+
+
+(global-set-key [M-up] 'move-text-up)
+(global-set-key [M-down] 'move-text-down)  
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0046b9f" class="outline-3">
+<h3 id="org0046b9f"><span class="section-number-3">10.2.</span> copy whole line</h3>
+<div class="outline-text-3" id="text-10-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defun copy-whole-line ()
+  (interactive)
+  (save-excursion
+    (kill-new
+     (buffer-substring
+      (point-at-bol)
+      (point-at-eol)))))
+(global-set-key (kbd "C-c c") 'copy-whole-line)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1a88a3d" class="outline-3">
+<h3 id="org1a88a3d"><span class="section-number-3">10.3.</span> kill whole word</h3>
+<div class="outline-text-3" id="text-10-3">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defun kill-whole-word ()
+  (interactive)
+  (kill-word 1))
+(global-set-key (kbd "C-c w") 'kill-whole-word)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29fd881" class="outline-3">
+<h3 id="org29fd881"><span class="section-number-3">10.4.</span> config edit/reload</h3>
+<div class="outline-text-3" id="text-10-4">
+</div>
+<div id="outline-container-orgbba91d9" class="outline-4">
+<h4 id="orgbba91d9"><span class="section-number-4">10.4.1.</span> edit</h4>
+<div class="outline-text-4" id="text-10-4-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defun open-edit-config ()
+  (interactive)
+  (find-file "~/.emacs.d/config.org"))
+(global-set-key (kbd "C-c e") 'open-edit-config)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orga1471dd" class="outline-4">
+<h4 id="orga1471dd"><span class="section-number-4">10.4.2.</span> reload</h4>
+<div class="outline-text-4" id="text-10-4-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(defun config-reload ()
+  (interactive)
+  (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+(global-set-key (kbd "C-c r") 'config-reload)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3bca7b1" class="outline-2">
+<h2 id="org3bca7b1"><span class="section-number-2">11.</span> My Website</h2>
+<div class="outline-text-2" id="text-11">
+<p>
+Some functions related to my personal website tasks.
+</p>
+<div class="org-src-container">
+<pre class="src src-elisp">(defun log-diary()
+  (interactive)
+  (setq filename (concat "~/website/content/diary/" (format-time-string "%Y-%m-%d-%H-%M") ".md"))
+  (find-file filename)
+  (insert (concat "+++\ntitle = \"" (format-time-string "%Y.%m.%d %A %P %H:%M") "\"\n+++\n\n")))  
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7cea20c" class="outline-2">
+<h2 id="org7cea20c"><span class="section-number-2">12.</span> Packages</h2>
+<div class="outline-text-2" id="text-12">
+</div>
+<div id="outline-container-org22dae95" class="outline-3">
+<h3 id="org22dae95"><span class="section-number-3">12.1.</span> Beacon</h3>
+<div class="outline-text-3" id="text-12-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package beacon
+  :ensure t
+  :init
+  (beacon-mode 1))
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org097ceae" class="outline-3">
+<h3 id="org097ceae"><span class="section-number-3">12.2.</span> Which Key</h3>
+<div class="outline-text-3" id="text-12-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org245695e" class="outline-2">
+<h2 id="org245695e"><span class="section-number-2">13.</span> Org mode</h2>
+<div class="outline-text-2" id="text-13">
+</div>
+<div id="outline-container-orgbbc1681" class="outline-4">
+<h4 id="orgbbc1681"><span class="section-number-4">13.0.1.</span> basic config</h4>
+<div class="outline-text-4" id="text-13-0-1">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(setq org-src-window-setup 'current-window)
+(custom-set-faces
+
+ '(org-level-1 ((t (:inherit outline-1 :height 1.5))))
+   '(org-level-2 ((t (:inherit outline-2 :height 1.2))))
+   '(org-level-3 ((t (:inherit outline-3 :height 1.1))))
+   '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+   '(org-level-5 ((t (:inherit outline-5 :height 1.0))))
+)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0e89569" class="outline-4">
+<h4 id="org0e89569"><span class="section-number-4">13.0.2.</span> Bullets</h4>
+<div class="outline-text-4" id="text-13-0-2">
+<div class="org-src-container">
+<pre class="src src-emacs-lisp">(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org23d3951" class="outline-2">
+<h2 id="org23d3951"><span class="section-number-2">14.</span> Misc</h2>
+<div class="outline-text-2" id="text-14">
+<p>
+Some extra setting, which doesn't fall in any category above.
+</p>
+</div>
+<div id="outline-container-org9fc722f" class="outline-3">
+<h3 id="org9fc722f"><span class="section-number-3">14.1.</span> Locales</h3>
+<div class="outline-text-3" id="text-14-1">
+<ul class="org-ul">
+<li><i>Reference: <a href="https://www.gnu.org/software/emacs/manual/html_node/elisp/Locales.html">https://www.gnu.org/software/emacs/manual/html_node/elisp/Locales.html</a></i></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-elisp">(setq locale-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yash Bajaj</p>
+<p class="date">Created: 2022-11-11 Fri 23:01</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
