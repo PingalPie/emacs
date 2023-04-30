@@ -1,1 +1,1 @@
-("~/code/website/" "~/.emacs.d/" "~/code/C/liveoverflow_youtube/")
+("~/.emacs.d/")

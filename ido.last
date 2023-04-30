@@ -2,6 +2,10 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/home/wt/" . "yash/")
+ ("/home/wt/yash/website/static/" . "css/")
+ ("/home/wt/yash/website/" . "templates/")
+ ("/home/wt/yash/" . "website/")
  ("/home/yash/code/website/content/" . "diary/")
  ("/home/yash/code/website/" . "content/")
  ("/home/yash/code/" . "website/")
@@ -10,6 +14,8 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/wt/yash/website/templates/"
+ "/home/wt/yash/website/static/css/"
  "/home/yash/code/website/content/diary/"
  "/home/yash/"
  "/home/yash/code/website/"
@@ -17,13 +23,32 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "base.html"
+ "style.css"
+ "lofi.css"
+ "lofi-base.html"
+ "lofi-index.html"
+ "index.html"
+ "diary.html"
+ "lofi.html"
  "2022-11-11.md"
  "avatar.png"
- "config.toml"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/home/wt/" (25675 54121 98866 68000) ".java/" "frontend-web.tar.gz" ".npm/" ".zsh_history" ".zcompdump-wt-5.8.zwc" "Downloads/" ".wget-hsts" "wt.tar" "redis/" "tmp.html" "Vagrantfile" ".bash_logout" "eil.tar" ".emacs.d/" "frontend-web/" "pmis/" "docs2.tar.gz" "Pictures/" ".mongodb/" "Music/" ".oh-my-zsh/" ".phive/" "snap/" "documents/" "19-Dec-2022" ".pki/" "tmp.jpeg" ".lesshst" ".zcompdump-wt-5.8" "cloudsocket_kkhotel/" "pmis-bkp05122022/" ".shell.pre-oh-my-zsh" ".config/" "./" "amit-docs/" ".zcompdump" ".ansible/" "2" "pmis-bkp05122022.zip" ".ssh/" ".dotnet/" ".local/" ".gnupg/" "papa.tar.gz" "../" "docs (1)/" ".phpdoc/" ".anyconnect" "mpweb-27Jan2023.tar.gz" "tools/" "shubhmam/" "docs.tar.gz" ".node_repl_history" ".vscode/" "eil/" "Documents/" "mongodb/" ".phpls/" "vagrant_2.2.19_x86_64.deb" "Public/" "yash/" ".sqlite_history" ".gnome/" ".anydesk/" ".bash_history" ".zshrc" ".netbeans/" "NetBeansProjects/" "kda.tar.gz" "var/" ".thunderbird/" "mpweb-02Feb2022.tar.gz" "Templates/" ".profile" ".mozilla/" ".zoom/" "Desktop/" ".cache/" "testcontos/" ".tmux/" "cloudsocket_kkhotel.tar.gz" ".vagrant/" "mysql/" "Videos/" ".bashrc" ".python_history" "names" ".sudo_as_admin_successful" ".gitconfig" "mpweb.tar.gz" ".viminfo")
+
+ ("/home/wt/yash/website/templates/" (25664 59158 793866 508000) "base.html" "lofi-base.html" "404.html" "piyush.img" "page.html" "./" "lofi-index.html" "../" "blog.html" "diary.html" "index.html")
+
+ ("/home/wt/yash/website/static/css/" (25664 59216 799425 524000) "lofi.css" "./" "../" ".#style.css" "style.css")
+
+ ("/home/wt/yash/website/" (25664 58888 381372 21000) "static/" "public/" "templates/" ".git/" "pingalpie.priv" "README.md" "config.toml" "./" "../" "auto-update.sh" "content/")
+
+ ("/home/wt/yash/" (25664 58539 138856 580000) "cs50/" "main.py" "test/" "tmp.html" "Farzi.S01.1080p.AMZN.WEBRip.DDP5.1.H.265-HODL/" "pdf-manipulater/" "test.py" "aot" "text" "pingalpie.pub" "./" "web.tar.gz" "anime/" "../" "mile-to-km/" ".test.py.swp" "Win11_22H2_EnglishInternational_x64v1.iso;" "contact-book/" "plundere" "website/" "data.mp3")
+
+ ("/home/wt/yash/website/static/" (25658 54955 146458 158000) "css/" "fonts/" "./" "images/" "../" "js/")
+
  ("/home/yash/code/website/content/diary/" (25454 10151 627605 346000) "2022-11-09.md" "2022-11-1.md" "./" "_index.md" "2022-11-07.md" "../" "2022-10-31.md" "2022-11-08.md" "2022-11-3.md" "2022-11-4.md" "2022-11-10.md" "2022-11-5.md" "2022-11-06.md")
 
  ("/home/yash/code/website/content/" (25451 38306 703088 243000) "blog/" "./" "diary/" "about.md" "../" "library/" "contact.md")
